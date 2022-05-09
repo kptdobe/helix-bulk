@@ -4,7 +4,7 @@
   "description": "helix-bulk-lit",
   "scripts": {
     "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "build": "parcel build --public-url '.' index.html"
   },
   "dependencies": {
     "@spectrum-web-components/bundle": "0.24.11",

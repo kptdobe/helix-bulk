@@ -4,7 +4,6 @@
   <head>
     <meta charset="utf-8" />
     <title>Helix Bulk</title>
-    <!-- <script src="node_modules/@spectrum-web-components/bundle/elements.js" type="module"></script> -->
     <link rel="stylesheet" href="./src/styles.css" />
     <link rel="stylesheet" href="./src/search/search.css" />
     <link rel="stylesheet" href="./src/pp/pp.css" />
@@ -25,7 +24,7 @@
                 <sp-field-label for="searchHost" size="m" required>Host</sp-field-label>
                 <sp-textfield placeholder="https://ref--repo--owner.hlx.live" id="searchHost" style="width: 400px" class="optionField"></sp-textfield>
                 <sp-field-label for="searchFor" size="m" required>Search for</sp-field-label>
-                <sp-textfield placeholder="Keyowrd to search for" id="searchFor" style="width: 400px" class="optionField"></sp-textfield>
+                <sp-textfield placeholder="Keyword(s) to search for" id="searchFor" style="width: 400px" class="optionField"></sp-textfield>
               </div>
               <div>
                 <sp-field-label for="searchRootPath" size="m">Root path</sp-field-label>
@@ -45,7 +44,7 @@
           <div class="pp">
             <div class="form">
               <div>
-                <sp-field-label for="ppURLs" size="m" required>URLs</sp-field-label>
+                <sp-field-label for="ppURLs" size="m" placeholder="List of URLs to preview and / or publish" required>URLs</sp-field-label>
                 <sp-textfield multiline id="ppURLs" grows style="width: 100%;" class="optionField"></sp-textfield>
               </div>
               <div>
