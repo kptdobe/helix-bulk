@@ -1,0 +1,16 @@
+{
+  "name": "helix-bulk-lit",
+  "version": "1.0.0",
+  "description": "helix-bulk-lit",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@spectrum-web-components/bundle": "0.24.11",
+    "parcel": "2.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0"
+  }
+}

@@ -1,0 +1,15 @@
+
+.search .form div {
+  min-width: 500px;
+}
+
+.search #searchResults {
+  width: 100%;
+  height: 400px;
+  overflow-y: auto;
+}
+
+.search #searchResults p {
+  vertical-align: middle;
+  line-height: 32px;
+}
