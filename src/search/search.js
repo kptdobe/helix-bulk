@@ -24,22 +24,21 @@ async function fgrep(url, host, pattern) {
 async function fgrepNextFile(host, queue, pattern, onResultFound) {
   const url = queue.shift();
   if (url) {
-    fgrep(url, host, pattern).then((result) => {
-      if (onResultFound) {
-        onResultFound(result);
-      }
-      // displayResult(result);
-      if (queue[0]) fgrepNextFile(host, queue, pattern, onResultFound);
-      // updateStatus();
-    });
+    const result = await fgrep(url, host, pattern);
+    if (onResultFound) {
+      onResultFound(result);
+    }
+    if (queue[0]) return fgrepNextFile(host, queue, pattern, onResultFound);
   }
 }
 
 async function fgrepFiles(sitemap, host, pattern, connections, onResultFound) {
   const queue = [...sitemap];
+  const promises = [];
   for (let c = 0; c < connections; c += 1) {
-    fgrepNextFile(host, queue, pattern, onResultFound);
+    promises.push(fgrepNextFile(host, queue, pattern, onResultFound));
   }
+  await Promise.all(promises);
 }
 
 async function search(sitemap, host, pattern, connections, onResultFound) {

@@ -91,6 +91,7 @@ function onResultFound(result) {
 
 // eslint-disable-next-line import/prefer-default-export
 export async function doSearch() {
+  SEARCH_BUTTON.setAttribute('disabled', 'true');
   totalSize = 0;
   totalFiles = 0;
   totalSearched = 0;
@@ -116,6 +117,8 @@ export async function doSearch() {
   });
   totalFiles = filteredURLs.length;
   await search(filteredURLs, config.fields.searchHost, pattern, +connections, onResultFound);
+
+  SEARCH_BUTTON.removeAttribute('disabled');
 }
 
 const attachListeners = () => {
