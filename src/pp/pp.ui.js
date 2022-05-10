@@ -50,6 +50,18 @@ const displayResult = (operation, counter, url) => {
     OPERATION_RESULTS_PANEL.appendChild(p);
 }
 
+const disableButtons = () => {
+  PREVIEW_BUTTON.setAttribute('disabled', 'true');
+  PUBLISH_BUTTON.setAttribute('disabled', 'true');
+  PP_BUTTON.setAttribute('disabled', 'true');
+}
+
+const enableButtons = () => {
+  PREVIEW_BUTTON.removeAttribute('disabled');
+  PUBLISH_BUTTON.removeAttribute('disabled');
+  PP_BUTTON.removeAttribute('disabled');
+}
+
 const doPreview = async () => {
   const urls = getURLs();
   await preview(urls, (url, operation, counter, total, adminURL, json) => {
@@ -70,17 +82,23 @@ const attachListeners = () => {
   attachOptionFieldsListeners(config.fields, PARENT_SELECTOR);
 
   PREVIEW_BUTTON.addEventListener('click', async () => {
+    disableButtons();
     clear();
     await doPreview();
+    enableButtons();
   });
   PUBLISH_BUTTON.addEventListener('click', async () => {
+    disableButtons();
     clear();
     await doPublish(); 
+    enableButtons();
   });
   PP_BUTTON.addEventListener('click', async () => {
+    disableButtons();
     clear();
     await doPreview();
     await doPublish();
+    enableButtons();
   });
 }
 
