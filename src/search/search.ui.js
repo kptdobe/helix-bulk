@@ -112,7 +112,7 @@ export async function doSearch() {
   }
   const filteredURLs = sitemapURLs.filter((url) => {
     const u = new URL(url);
-    return u.pathname.startsWith(`${rp}${searchIn}`);
+    return u.pathname.startsWith(searchIn);
   });
   totalFiles = filteredURLs.length;
   await search(filteredURLs, config.fields.searchHost, pattern, +connections, onResultFound);
